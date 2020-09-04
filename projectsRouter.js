@@ -7,7 +7,15 @@ router.get('/', (req, res) => {
 Projects.get()
     .then(result => res.status(200).json({ data: result }))
     .catch(err => res.status(500).json({ error: "Server error" }))
-})
+});
+
+// GET PROJECT BY ID
+router.get('/:id', validateId, (req, res) => {
+const id = Number(req.params.id);
+Projects.get(id)
+    .then(result => res.status(200).json({ data: result }))
+    .catch(err => res.status(500).json({ error: "Server error" }))
+    });
 
 // GET ALL ACTIONS BY PROJECT ID
 router.get('/:id', validateId, (req, res) => {
