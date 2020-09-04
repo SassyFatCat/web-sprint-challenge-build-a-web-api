@@ -1,8 +1,8 @@
 // IMPORTS
 const express = require('express');
 const helmet = require('helmet');
-// const userRouter = require('./users/userRouter.js');
-// const postRouter = require('./posts/postRouter.js');
+const projectsRouter = require('./projectsRouter.js');
+const actionsRouter = require('./actionsRouter.js');
 
 // SERVER
 const server = express();
@@ -13,8 +13,8 @@ server.use(helmet());
 server.use(logger);
 
 // ROUTERS
-// server.use('/api/users', userRouter);
-// server.use('/api/posts', postRouter);
+server.use('/api/projects', projectsRouter);
+server.use('/api/actions', actionsRouter);
 
 // GLOBAL MIDDLEWARE FUNCTIONS
 function logger(req, res, next) {
