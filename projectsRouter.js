@@ -39,8 +39,9 @@ Projects.remove(req.params.id)
 })
 
 // UPDATE A PROJECT
-router.put('/id', validateId, (req, res) => {
-Projects.update(req.params.id, req.body)
+router.put('/:id', validateId, (req, res) => {
+const id = Number(req.params.id);
+Projects.update(id, req.body)
     .then(result => res.status(200).json({ data: result }))
     .catch(err => res.status(500).json({ data: "Server error" }))
 })
@@ -56,8 +57,8 @@ Projects.get(id)
 }
 
 function validateProject(req, res, next) {
-const {name, description, actions} = req.body;
-if (name && description && actions) {
+const {name, description} = req.body;
+if (name && description) {
     next();
 } else {
     res.status(400).json({ error: "Please fill out all required fields" })
