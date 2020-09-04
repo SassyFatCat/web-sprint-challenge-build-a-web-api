@@ -16,6 +16,12 @@ server.use(logger);
 server.use('/api/projects', projectsRouter);
 server.use('/api/actions', actionsRouter);
 
+server.get('/', (req, res) => {
+    res.send(`
+    <h2>Server up </h2>
+  `);
+})
+
 // GLOBAL MIDDLEWARE FUNCTIONS
 function logger(req, res, next) {
 console.log(`Request: ${req.method} | To: ${req.url}`);
