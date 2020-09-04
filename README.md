@@ -61,10 +61,44 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+JS
+    - Using the same language for client and server side
+    - Asynchronous operations
+    - Being able to use the NPM repository
+Express
+    - Express is a framework that sits on top of node.js and is just a node module like any other
+    - The ability to create routes for API requests, serve data with minimal code, use middleware, write code easily
+
 1. Understand and explain the use of Middleware?
+    - middleware is used to intercept API requests and can change/validate request data, then either return a response or pass it on to the next middleware function
+    - middleware includes
+        - third-party - helmet, cors, etc.
+        - custom middleware - middleware that we build
+        - build-in middleware - routes, for example
+
+        middlware can also be either 
+        - global - all requests are passed through
+        - local - only requests sent to a certain route are passed through
+
 1. The basic principles of the REST architectural style.
+
+    - Everything is a resource
+    - Each resource is identifiable by a unique URL
+    - Use standard HTTP methods
+    - Multiple representations for same resource
+    - Stateless - no saving of client information or requests, each request is treated as new
+
+
 1. Understand and explain the use of Express Routers.
+
+    - Based on the URL and HTTP method we can easily route requests to the correct request handler
+    - The organization makes it easier to debug 
+    - being able to have a single URL per resource    
+
 1. Describe tooling used to manually test the correctness of an API.
+
+    - nodemon - a dev dependency which will refresh the server anytime we make changes in the repo and warn of errors
+    - postman - a program which we can use to make API calls to our localhost or deployed server
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
